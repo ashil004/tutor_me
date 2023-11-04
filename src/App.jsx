@@ -1,5 +1,6 @@
 
 import './App.css'
+import Bannar from './assets/Bannar/Bannar'
 
 function App() {
  
@@ -8,7 +9,8 @@ function App() {
   return (
     <>
       
-      <h1>Vite + React</h1>
+      
+      <Bannar></Bannar>
       
     </>
   )
