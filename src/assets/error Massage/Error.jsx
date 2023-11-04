@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Error = () => {
     return (
-        <div className="hero min-h-screen bg-base-200 " style={{backgroundImage: 'url(https://i.ibb.co/SdmNzRP/404-not-found.gif)'}} >
+        <div className="hero min-h-screen  " style={{backgroundImage: 'url(https://i.ibb.co/SdmNzRP/404-not-found.gif)'}} >
             
       <div className="hero-content flex-col lg:flex-row-reverse">
       <div className="text-center lg:text-left">
