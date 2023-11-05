@@ -3,7 +3,7 @@
 const Singup = () => {
     return (
         <div>
-            
+            hello sing up 
         </div>
     );
 };

@@ -10,7 +10,9 @@ function App() {
     <>
       
       
+      <div className='my-6'>
       <Bannar></Bannar>
+      </div>
       
     </>
   )
