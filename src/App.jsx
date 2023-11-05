@@ -10,6 +10,7 @@ import { MdEmojiEvents} from 'react-icons/md';
 import { GiAerialSignal} from 'react-icons/gi';
 
 import 'aos/dist/aos.css';
+import Marquee from "react-fast-marquee";
 import AOS from 'aos';
 AOS.init();
 
@@ -39,8 +40,8 @@ function App() {
                 </div>
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title text-white dark:text-black">Shoes!</h2>
-                <p className='text-white dark:text-black'>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title text-white dark:text-black">Interactive Courses</h2>
+                <p className='text-white dark:text-black'>Engaging multimedia courses with quizzes and discussions.</p>
                
               </div>
             </div>
@@ -56,8 +57,8 @@ function App() {
                 </div>
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title dark:text-white">Shoes!</h2>
-                <p className='dark:text-white'>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title dark:text-white">Personalized Learning Paths</h2>
+                <p className='dark:text-white'>Tailored study plans and progress tracking.</p>
                
               </div>
             </div>
@@ -73,8 +74,8 @@ function App() {
                 </div>
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title text-white dark:text-black">Shoes!</h2>
-                <p className='text-white dark:text-black'>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title text-white dark:text-black">Live Tutoring or Office Hours</h2>
+                <p className='text-white dark:text-black'> Real-time support from tutors or instructors.</p>
                
               </div>
             </div>
@@ -90,8 +91,8 @@ function App() {
                 </div>
               </figure>
               <div className="card-body items-center text-center">
-                <h2 className="card-title dark:text-white">Shoes!</h2>
-                <p className='dark:text-white'>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title dark:text-white">Community and Discussion Forums</h2>
+                <p className='dark:text-white'> Interactive space for student collaboration and questions.</p>
                
               </div>
             </div>
@@ -105,7 +106,8 @@ function App() {
       </div>
 
       {/* add to the fqu section */}
-      <div className='my-12'>
+      <div className='my-12' data-aos="fade-up"
+     data-aos-anchor-placement="center-bottom">
         <div className="flex flex-col w-full lg:flex-row">
           <div className="grid flex-grow  card bg-violet-200 dark:bg-yellow-400  rounded-box place-items-center"><Lottie animationData={faq}></Lottie></div>
           <div className="divider lg:divider-horizontal"></div>
@@ -115,6 +117,19 @@ function App() {
 
       {/* add to the 2nd section  */}
       <div >
+        <Marquee className=' m-6' speed={50} pauseOnHover={true} gradientWidth={200} direction='left' loop={0} autoFill={true} children>
+
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/KrBdhX3/pexels-keira-burton-6146978.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/2szSKLK/pexels-katerina-holmes-5905931.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/zmhbdh5/pexels-william-fortunato-6140610.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/SRSZtrg/pexels-monstera-production-6281919.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/brjLVJV/pexels-william-fortunato-6140707.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/VMQTVpZ/pexels-armin-rimoldi-5553051.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/Tqk8YKS/pexels-vanessa-loring-7869245.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/LNd4YTT/pexels-armin-rimoldi-5553069.jpg' />
+        <img className='w-60 h-60 p-8 hover:-translate-y-6' src='https://i.ibb.co/SydZZjQ/pexels-marta-wave-6437494.jpg' />
+
+        </Marquee>
 
       </div>
 
