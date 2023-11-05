@@ -12,6 +12,7 @@ import Assignment from './assets/Assignment/Assignment.jsx';
 import CreatAssignment from './assets/Creat/CreatAssignment.jsx';
 import MyA from './assets/my assignment/MyA.jsx';
 import Singup from './assets/singup/Singup.jsx';
+import Login from './assets/Login/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path:"/getstart",
         element:<Singup></Singup>,
+      },
+      {
+        path:"/login",
+        element:<Login></Login>
       }
     ] 
 
