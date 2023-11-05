@@ -10,7 +10,7 @@ const Login = () => {
                 <div className="grid flex-grow  card  rounded-box place-items-center">
                     <div className='max-w-2xl mx-auto'>
 
-                        <h3 className='text-2xl text-center font-bold text-yellow-400 dark:text-white'>Register your account</h3>
+                        <h3 className='text-2xl text-center font-bold text-yellow-400 dark:text-white'>Log In Your Account</h3>
                         <form>
                             
                             <div className="form-control">

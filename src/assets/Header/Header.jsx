@@ -41,9 +41,9 @@ const Header = () => {
                     }
                         
                     </button>
-                    <button className="btn btn-ghost ">
+                    <Link to={'/login'} ><button className="btn btn-ghost ">
                         <span className="text-white">Login</span>
-                    </button>
+                    </button></Link>
                     <button className="btn btn-ghost btn-circle">
                         <div className="indicator">
                             <img className="rounded-full" src="https://i.ibb.co/xFkqKGL/c-HJpdm-F0-ZS9sci9pb-WFn-ZXMvd2-Vic2l0-ZS8y-MDIy-LTA0-L3-Bm-LWljb240-LWppcj-Iw-Nj-Itc-G9y-LWwtam9i-N.webp"/>
