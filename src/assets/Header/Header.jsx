@@ -22,7 +22,7 @@ const Header = () => {
                         <label tabIndex={0} className="btn btn-ghost btn-circle">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                         </label>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gradient-to-r from-violet-200 to-yellow-200   rounded-box w-52  ">
                             {
                                 links
                             }
@@ -31,7 +31,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <Link to={'/'} className="btn btn-ghost normal-case text-xl" ><span className="text-3xl font-bold text-red-300">Tutor</span><sup className="text-xl text-slate-300 font-sans">Me</sup></Link>
+                    <Link to={'/'} className="btn btn-ghost normal-case text-xl" ><span className="text-3xl font-bold text-red-300">Tutor</span><sup className="text-xl text-slate-700 font-sans">Me</sup></Link>
                 </div>
                 <div className="navbar-end">
                 <button onClick={chageTheams } className="btn btn-ghost ">
