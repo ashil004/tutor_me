@@ -4,6 +4,14 @@ import login from './login.json'
 import { BsGoogle } from 'react-icons/bs';
 
 const Login = () => {
+    const loginHolder = event =>{
+        event.preventDefault();
+        const from = event.target;
+        const email = from . email.value ;
+        const password = from . password.value;
+        const loginData = { email,password};
+        console.log(loginData);
+    }
     return (
         <div>
              <div className="flex flex-col w-full lg:flex-row">
@@ -11,7 +19,7 @@ const Login = () => {
                     <div className='max-w-2xl mx-auto'>
 
                         <h3 className='text-2xl text-center font-bold text-yellow-400 dark:text-white'>Log In Your Account</h3>
-                        <form>
+                        <form onSubmit={loginHolder}>
                             
                             <div className="form-control">
                                 <label className="label">

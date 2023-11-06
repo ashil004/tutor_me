@@ -4,6 +4,16 @@ import singup from './signup.json'
 import { Link } from 'react-router-dom';
 
 const Singup = () => {
+    const singUpholder = event =>{
+        event.preventDefault();
+        const from  = event .target ;
+        const name = from.name.value ;
+        const photo = from.photo.value;
+        const email = from.email.value;
+        const password = from. password.value;
+        const singupData ={ name , photo, email, password};
+        console.log(singupData);
+    }
     return (
         <div>
             <div className="flex flex-col w-full lg:flex-row">
@@ -11,12 +21,18 @@ const Singup = () => {
                     <div className='max-w-2xl mx-auto'>
 
                         <h3 className='text-2xl text-center font-bold text-yellow-400 dark:text-white '>Register your account</h3>
-                        <form>
+                        <form onSubmit={singUpholder}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text text-yellow-400 dark:text-white">Name</span>
                                 </label>
                                 <input type="text" name='name' placeholder="Name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-yellow-400 dark:text-white">Photo Url</span>
+                                </label>
+                                <input type="text" name='photo' placeholder="Enter Photo Url" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
                                 <label className="label">
