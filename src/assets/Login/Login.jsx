@@ -2,16 +2,48 @@ import { Link } from "react-router-dom";
 import Lottie from 'lottie-react';
 import login from './login.json'
 import { BsGoogle } from 'react-icons/bs';
+import { useContext } from "react";
+import { AuthContext } from "../provider/Authprovider";
+import { GoogleAuthProvider,  getAuth, signInWithPopup, } from "firebase/auth";
+import app from "../Firebase/firebase.config";
 
 const Login = () => {
+    const { signIn } = useContext(AuthContext);
     const loginHolder = event =>{
         event.preventDefault();
         const from = event.target;
         const email = from . email.value ;
         const password = from . password.value;
-        const loginData = { email,password};
-        console.log(loginData);
+        // const loginData = { };
+        console.log(email,password);
+        signIn( email ,password)
+        .then( result =>{
+            const user = result.user;
+            console.log(user);
+
+        })
+        .catch(error => console.log(error));
+  
     }
+    const logingwithGoogle = () => {
+        const provider = new GoogleAuthProvider();
+        const Auth  = getAuth(app);
+        signInWithPopup(Auth, provider)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                setmanages(user.email);
+
+
+            }).catch((error) => {
+                const errorMessage = error.message;
+                console.log(errorMessage);
+
+        })
+    
+    }
+    
+
     return (
         <div>
              <div className="flex flex-col w-full lg:flex-row">
@@ -38,7 +70,7 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn order-blue-400 rounded-lg bg-violet-200 dark:bg-yellow-400  text-white hover:text-black">Login</button>
-                                <button className="btn order-blue-400 rounded-lg bg-violet-200 dark:bg-yellow-400  text-white hover:text-black mt-4"><BsGoogle></BsGoogle>Google login</button>
+                                <button onClick={logingwithGoogle} className="btn order-blue-400 rounded-lg bg-violet-200 dark:bg-yellow-400  text-white hover:text-black mt-4"><BsGoogle></BsGoogle>Google login</button>
 
                                 <div className='flex items-center gap-4'>
                                     <p className='text-xl text-white dark:text-yellow-400 '>Don't have an account? </p>

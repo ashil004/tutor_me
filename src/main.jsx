@@ -13,6 +13,10 @@ import CreatAssignment from './assets/Creat/CreatAssignment.jsx';
 import MyA from './assets/my assignment/MyA.jsx';
 import Singup from './assets/singup/Singup.jsx';
 import Login from './assets/Login/Login.jsx';
+import AuthProvider from './assets/provider/Authprovider.jsx';
+import Priveterouter from './assets/provider/Priveterouter.jsx';
+
+
 
 const router = createBrowserRouter([
   {
@@ -31,11 +35,11 @@ const router = createBrowserRouter([
       },
       {
         path:"/createassignment",
-        element:<CreatAssignment></CreatAssignment>
+        element:<Priveterouter><CreatAssignment></CreatAssignment></Priveterouter>
       },
       {
         path:"/myassignment",
-        element:<MyA></MyA>,
+        element:<Priveterouter><MyA></MyA></Priveterouter>,
 
       },
       {
@@ -54,6 +58,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+   <AuthProvider><RouterProvider router={router} /></AuthProvider>
   </React.StrictMode>,
 )

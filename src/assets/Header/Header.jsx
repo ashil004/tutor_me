@@ -1,14 +1,34 @@
-
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useDark } from "../DarkMood/UseDark";
-import { FiMoon ,FiSun} from 'react-icons/fi';
+import { FiMoon, FiSun } from 'react-icons/fi';
+import { AuthContext } from "../provider/Authprovider";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
 const Header = () => {
-    const { chageTheams , mode} =useDark()
+
+
+    const { chageTheams, mode } = useDark();
+    const masueHover = e => {
+        const handelName = user.displayName;
+        
+        toast(handelName);
+    }
+
+
+    const { user, logOut } = useContext(AuthContext);
+    const clickOnLogout = () => {
+
+        logOut()
+
+    }
+
     const links = <>
+    
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/assignment'} > All Assignment</NavLink></li>
         <li><NavLink to={'/createassignment'}>Create Assignments</NavLink></li>
@@ -16,6 +36,7 @@ const Header = () => {
     </>
     return (
         <div>
+            
             <div className="navbar bg-violet-200 dark:bg-yellow-400">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -34,19 +55,22 @@ const Header = () => {
                     <Link to={'/'} className="btn btn-ghost normal-case text-xl" ><span className="text-3xl font-bold text-red-300">Tutor</span><sup className="text-xl text-slate-700 font-sans">Me</sup></Link>
                 </div>
                 <div className="navbar-end">
-                <button onClick={chageTheams } className="btn btn-ghost ">
+                    <button onClick={chageTheams} className="btn btn-ghost ">
 
-                    {
-                        mode ==="dark"?<FiMoon className="text-xl"></FiMoon>:<FiSun className="text-xl"></FiSun>
-                    }
-                        
+                        {
+                            mode === "dark" ? <FiMoon className="text-xl"></FiMoon> : <FiSun className="text-xl"></FiSun>
+                        }
+
                     </button>
-                    <Link to={'/login'} ><button className="btn btn-ghost ">
-                        <span className="text-white">Login</span>
-                    </button></Link>
+                    {
+                        user ? <button onClick={clickOnLogout} className="btn ">LogOut</button> : <Link to={'/login'} ><button className="btn ">Login</button></Link>
+                    }
                     <button className="btn btn-ghost btn-circle">
-                        <div className="indicator">
-                            <img className="rounded-full" src="https://i.ibb.co/xFkqKGL/c-HJpdm-F0-ZS9sci9pb-WFn-ZXMvd2-Vic2l0-ZS8y-MDIy-LTA0-L3-Bm-LWljb240-LWppcj-Iw-Nj-Itc-G9y-LWwtam9i-N.webp"/>
+                        <div className="indicator ">
+                            {
+                                user ? <img className="rounded-full " onMouseOver={masueHover} src={user.photoURL} /> : <img className="rounded-full" src={"https://i.ibb.co/xFkqKGL/c-HJpdm-F0-ZS9sci9pb-WFn-ZXMvd2-Vic2l0-ZS8y-MDIy-LTA0-L3-Bm-LWljb240-LWppcj-Iw-Nj-Itc-G9y-LWwtam9i-N.webp"} />
+                            }
+                            <ToastContainer />
                         </div>
                     </button>
                 </div>

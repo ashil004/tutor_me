@@ -2,8 +2,14 @@
 import Lottie from 'lottie-react'
 import singup from './signup.json'
 import { Link } from 'react-router-dom';
+import { useContext , useState } from "react";
+import { AuthContext } from '../provider/Authprovider';
+import swal from 'sweetalert';
 
 const Singup = () => {
+    const {createUser} = useContext(AuthContext);
+    const [registerError,setregisterError] = useState('')
+    const [ ragsuss,setragsuss] = useState('')
     const singUpholder = event =>{
         event.preventDefault();
         const from  = event .target ;
@@ -11,9 +17,33 @@ const Singup = () => {
         const photo = from.photo.value;
         const email = from.email.value;
         const password = from. password.value;
-        const singupData ={ name , photo, email, password};
-        console.log(singupData);
+        console.log(name , photo, email, password);
+        createUser( email , password)
+        .then(result =>{
+            const user = result.user;
+            console.log(user);
+            setragsuss( swal('Good job','For your Registration'))
+            
+        }).Catch(error =>console.log(error));
+          setregisterError(errorMessage);
+
+
+        if (password .length < 8){
+            setregisterError('Password must be at least 8 characters long')
+            return;
+        }else if( !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test ( password) ){
+            setregisterError('Password must contain at least one number and one uppercase and lowercase letter')
+            return;
+        }
+
+
+        setregisterError('')
+        setragsuss('')
     }
+
+
+
+    
     return (
         <div>
             <div className="flex flex-col w-full lg:flex-row">
@@ -59,6 +89,7 @@ const Singup = () => {
                             </div>
 
                         </form>
+                        {registerError && <p className="text-center text-red-500 p-6">{registerError}</p>}
                        
 
 
