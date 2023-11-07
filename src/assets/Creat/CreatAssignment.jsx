@@ -19,6 +19,20 @@ const CreatAssignment = () => {
         const fromData  = { email, marks, title, photo, description,date, Level,pdfurl};
         console.log(fromData);
 
+        fetch('http://localhost:5000/data',{
+            method:'POST',
+            headers:{
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(fromData)
+            
+
+        })
+        .then((res) => res.json())
+        .then((data) =>{
+            console.log(data);
+        })
+
         
 
 

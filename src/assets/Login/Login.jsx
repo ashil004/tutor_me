@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Lottie from 'lottie-react';
 import login from './login.json'
 import { BsGoogle } from 'react-icons/bs';
@@ -9,22 +9,25 @@ import app from "../Firebase/firebase.config";
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
     const loginHolder = event =>{
         event.preventDefault();
         const from = event.target;
         const email = from . email.value ;
         const password = from . password.value;
-        // const loginData = { };
-        console.log(email,password);
+         const loginData = { email,password };
+        console.log(loginData);
         signIn( email ,password)
         .then( result =>{
             const user = result.user;
             console.log(user);
+            navigate('/');
 
         })
         .catch(error => console.log(error));
   
     }
+    
     const logingwithGoogle = () => {
         const provider = new GoogleAuthProvider();
         const Auth  = getAuth(app);

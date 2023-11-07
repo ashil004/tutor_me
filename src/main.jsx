@@ -15,6 +15,7 @@ import Singup from './assets/singup/Singup.jsx';
 import Login from './assets/Login/Login.jsx';
 import AuthProvider from './assets/provider/Authprovider.jsx';
 import Priveterouter from './assets/provider/Priveterouter.jsx';
+import AssignmentView from './assets/Assignment/AssignmentView.jsx';
 
 
 
@@ -49,6 +50,11 @@ const router = createBrowserRouter([
       {
         path:"/login",
         element:<Login></Login>
+      },
+      {
+        path:"/viewid/:id",
+        element:<AssignmentView></AssignmentView>,
+        loader : ({params}) => fetch(`http://localhost:5000/data/${params.id}`)
       }
     ] 
 
