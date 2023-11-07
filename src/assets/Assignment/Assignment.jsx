@@ -12,9 +12,8 @@ const Assignment = () => {
         .then(data => setAssignmentsData(data));
     },[])
     return (
-        <div>
-            hello Assignment
-            <p> {assignmentsData.length } </p>
+        <div className="my-4">
+            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {
                 assignmentsData.map(assignmentData =><AssignmentCard key={assignmentData._id} assignmentData ={ assignmentData} ></AssignmentCard>)
