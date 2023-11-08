@@ -32,7 +32,8 @@ const Header = () => {
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/assignment'} > All Assignment</NavLink></li>
         <li><NavLink to={'/createassignment'}>Create Assignments</NavLink></li>
-        <li><NavLink to={'/myassignment'}>My Assignments</NavLink></li>
+        {/* <li><NavLink to={'/myassignment'}>My Assignments</NavLink></li> */}
+        <li><NavLink to={'/paddingdata'}>Assignment Submit</NavLink></li>
     </>
     return (
         <div>

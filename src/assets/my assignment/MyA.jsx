@@ -1,11 +1,16 @@
 
-
+import swal from 'sweetalert';
 import { data } from "autoprefixer";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useLoaderData } from "react-router-dom";
+
 
 const MyA = () => {
+    const assignmentViewId = useLoaderData();
+    const { title, description, photo, date, pdf, level, marks,email } = assignmentViewId;
+    
     const fromholder = event => {
         event.preventDefault();
         const from = event.target;
@@ -17,8 +22,27 @@ const MyA = () => {
         const date = from.date.value;
         const Level = from.level.value;
         const pdfurl = from.pdf.value;
-        const fromData = { email, marks, title, photo, description, date, Level, pdfurl };
-        console.log(fromData);
+        const Submistion = { email, marks, title, photo, description, date, Level, pdfurl };
+        console.log(Submistion);
+
+        fetch('http://localhost:5000/submitted',{
+            method:'POST',
+            headers:{
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(Submistion)
+            
+
+        })
+        .then((res) => res.json())
+        .then((data) =>{
+            console.log(data);
+
+            if(data.insertedId){
+                swal("Thank you for your subscription")
+            }
+
+        })
 
 
 
@@ -38,7 +62,7 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" name="email" placeholder="Enter your Log in email" className="input input-bordered w-full" />
+                            <input type="text" name="email" defaultValue={email}   placeholder="Enter your Log in email" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -47,7 +71,7 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="number" name="marks" placeholder="Enter your Assignment marks " className="input input-bordered w-full" />
+                            <input type="number" defaultValue={marks} name="marks" placeholder="Enter your Assignment marks " className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -61,7 +85,7 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" name="title" placeholder="Enter your Assignment title " className="input input-bordered w-full" />
+                            <input type="text" defaultValue={title} name="title" placeholder="Enter your Assignment title " className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -70,7 +94,7 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" name="photo" placeholder="Enter your photo url  " className="input input-bordered w-full" />
+                            <input type="text" defaultValue={photo} name="photo" placeholder="Enter your photo url  " className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -83,7 +107,7 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <textarea name="description" className="textarea  input input-bordered w-full h-64" placeholder=" Enter Assignment  description"></textarea>
+                            <textarea name="description" defaultValue={description} className="textarea  input input-bordered w-full h-64" placeholder=" Enter Assignment  description"></textarea>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -92,7 +116,7 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <DatePicker selected={datas} onChange={data => setDatas(data)} dateFormat="dd/MM/yyyy" className="input input-bordered w-full" name="date"></DatePicker>
+                            <DatePicker selected={datas} onChange={data => setDatas(data)} dateFormat="dd/MM/yyyy" className="input input-bordered w-full" name="date" value={date} ></DatePicker>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -101,11 +125,11 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <select name="level" className="select select-bordered w-full max-w-xs">
-                                <option value="Assignment  Level" selected disabled>Assignment  Level</option>
-                                <option value="Heard">Heard</option>
-                                <option value="Normal" >Normal</option>
-                                <option value="Easy">Easy</option>
+                            <select defaultValue={level} name="level" className="select select-bordered w-full max-w-xs">
+                                 <option value="Hard">Hard</option>
+                                 <option value="Normal">Normal</option>
+                                 <option value="Easy">Easy</option>
+                                
                             </select>
                         </label>
                     </div>
@@ -118,7 +142,7 @@ const MyA = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" name="pdf" placeholder="Enter your pdf file link " className="input input-bordered w-full" />
+                            <input type="text" name="pdf" defaultValue={pdf} placeholder="Enter your pdf file link " className="input input-bordered w-full" />
                         </label>
                     </div>
 

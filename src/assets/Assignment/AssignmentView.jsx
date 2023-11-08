@@ -1,9 +1,9 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const AssignmentView = () => {
     const assignmentViewId = useLoaderData();
-    const { title, description, photo, date, pdf, level, marks } = assignmentViewId;
+    const { title, description, photo, date, pdf, level, marks ,email } = assignmentViewId;
     return (
         <div>
             <div className="hero min-h-screen ">
@@ -18,7 +18,7 @@ const AssignmentView = () => {
                         <h3 className="text-white dark:text-yellow-400"> Marks: {marks}</h3>
                         </div>
                         <p className="py-6 text-red-600 dark:text-white">{description}</p>
-                        
+                        <Link to={'/createassignment'}><button className="btn bg-violet-600 dark:bg-yellow-400  text-white hover:text-black">Add Assignment</button></Link>
                     </div>
                 </div>
             </div>

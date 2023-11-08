@@ -12,7 +12,7 @@ const AssignmentCard = ({ assignmentData }) => {
                     <p className="font-bold text-xl text-white dark:text-yellow-400 " > Level:{level}</p>
                     <p className="font-bold text-xl text-white dark:text-yellow-400 " > Marks:{marks}</p>
                     <div className="card-actions justify-end">
-                        <Link to={'/myassignment'} ><button className="btn bg-violet-600 dark:bg-yellow-400  text-white hover:text-black" >update</button></Link>
+                        <Link to={`/myassignment/${_id}`} ><button className="btn bg-violet-600 dark:bg-yellow-400  text-white hover:text-black" >update</button></Link>
                         <Link to={`/viewid/${_id}`}><button className=" btn bg-violet-600 dark:bg-yellow-400  text-white hover:text-black">Learn now!</button></Link>
                     </div>
                 </div>

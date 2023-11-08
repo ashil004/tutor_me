@@ -1,10 +1,12 @@
-
+import swal from 'sweetalert';
 import { data } from "autoprefixer";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
+
 const CreatAssignment = () => {
+    
     const fromholder = event => {
         event.preventDefault();
         const from = event.target;
@@ -31,6 +33,10 @@ const CreatAssignment = () => {
         .then((res) => res.json())
         .then((data) =>{
             console.log(data);
+
+            if(data.insertedId){
+                swal("Thank you for your subscription")
+            }
         })
 
         
@@ -52,7 +58,7 @@ const CreatAssignment = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="text" name="email" placeholder="Enter your Log in email" className="input input-bordered w-full" />
+                            <input type="text"  name="email" placeholder="Enter your Log in email" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -61,7 +67,7 @@ const CreatAssignment = () => {
                         </label>
                         <label className="input-group">
 
-                            <input type="number" name="marks" placeholder="Enter your Assignment marks " className="input input-bordered w-full" />
+                            <input type="number"  name="marks" placeholder="Enter your Assignment marks " className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -75,7 +81,7 @@ const CreatAssignment = () => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="title" placeholder="Enter your Assignment title " className="input input-bordered w-full" />
+                                <input type="text"  name="title" placeholder="Enter your Assignment title " className="input input-bordered w-full" />
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">
@@ -84,7 +90,7 @@ const CreatAssignment = () => {
                             </label>
                             <label className="input-group">
 
-                                <input type="text" name="photo" placeholder="Enter your photo url  " className="input input-bordered w-full" />
+                                <input type="text"  name="photo" placeholder="Enter your photo url  " className="input input-bordered w-full" />
                             </label>
                         </div>
                     </div>
@@ -97,7 +103,7 @@ const CreatAssignment = () => {
                             </label>
                             <label className="input-group">
 
-                                <textarea name="description" className="textarea  input input-bordered w-full h-64" placeholder=" Enter Assignment  description"></textarea>
+                                <textarea  name="description" className="textarea  input input-bordered w-full h-64" placeholder=" Enter Assignment  description"></textarea>
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">
@@ -106,7 +112,7 @@ const CreatAssignment = () => {
                             </label>
                             <label className="input-group">
 
-                               <DatePicker selected={datas} onChange={data =>setDatas(data)} dateFormat="dd/MM/yyyy" className="input input-bordered w-full"  name="date"></DatePicker>
+                               <DatePicker selected={datas} onChange={data =>setDatas(data)} dateFormat="dd/MM/yyyy" className="input input-bordered w-full"   name="date"></DatePicker>
                             </label>
                         </div>
                         <div className="form-control md:w-1/2 ml-4">

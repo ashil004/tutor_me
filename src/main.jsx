@@ -16,6 +16,7 @@ import Login from './assets/Login/Login.jsx';
 import AuthProvider from './assets/provider/Authprovider.jsx';
 import Priveterouter from './assets/provider/Priveterouter.jsx';
 import AssignmentView from './assets/Assignment/AssignmentView.jsx';
+import PaddingData from './assets/AssignmentViweing.jsx/PaddingData.jsx';
 
 
 
@@ -39,8 +40,9 @@ const router = createBrowserRouter([
         element:<Priveterouter><CreatAssignment></CreatAssignment></Priveterouter>
       },
       {
-        path:"/myassignment",
+        path:"/myassignment/:id",
         element:<Priveterouter><MyA></MyA></Priveterouter>,
+        loader : ({params}) => fetch(`http://localhost:5000/data/${params.id}`)
 
       },
       {
@@ -53,8 +55,13 @@ const router = createBrowserRouter([
       },
       {
         path:"/viewid/:id",
-        element:<AssignmentView></AssignmentView>,
+        element:<Priveterouter><AssignmentView></AssignmentView></Priveterouter>,
         loader : ({params}) => fetch(`http://localhost:5000/data/${params.id}`)
+      },
+      {
+        path:"/paddingdata",
+        element:<Priveterouter><PaddingData></PaddingData></Priveterouter>,
+        
       }
     ] 
 
